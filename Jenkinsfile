@@ -5,9 +5,9 @@ echo "Running ${env.BRANCH_NAME}"
 stage('Sleep') {
     echo "Sleeping"
     echo "ChangeSets"
-    echo currentBuild.changeSets.dump()
+    echo currentBuild.rawBuild.changeSets.dump()
     if (currentBuild.changeSets != null) {
-      for (changeSetList in currentBuild.changeSets) {
+      for (changeSetList in currentBuild.rawBuild.changeSets) {
           echo "ChangeSetList"
           echo changeSetList.dump()
           for (changeSet in changeSetList) {
